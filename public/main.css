@@ -149,8 +149,6 @@ select , option , button {
     display: none;
 }
 .active {
-    display: flex;
-}
-.hidden {
-    display: none;
+    background: rgb(62, 62, 62);
+    color: white;
 }

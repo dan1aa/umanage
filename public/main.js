@@ -1,18 +1,20 @@
 const addTaskButton = document.querySelector('.add_task')
 const inputTaskTitle = document.querySelector('.task_title');
 const tabLinks = document.querySelectorAll('.tab_links__link');
-const problems = document.querySelector('.problems')
-const inprogress = document.querySelector('.inprogress')
-const done = document.querySelector('.done')
+const allTasksWrapper = document.querySelectorAll('.all_tasks_wrapper')
 const startTimerButtons = document.querySelectorAll('.start_timer')
 const stopTimerButtons = document.querySelectorAll('.stop_timer')
 
 tabLinks.forEach(button => {
     button.onclick = function () {
         let id = this.dataset.id;
-        problems.style.display = 'none'
-        inprogress.style.display = 'none'
-        done.style.display = 'none'
+        for(let tabLink of tabLinks) {
+            tabLink.classList.remove('active')
+        }
+        for(let taskWrapper of allTasksWrapper) {
+            taskWrapper.style.display = 'none'
+        }
+        this.classList.toggle('active')
         document.querySelector(`.${id}`).style.display = 'flex';
     }
 })
@@ -22,7 +24,7 @@ addTaskButton.onclick = function (event) {
     event.preventDefault();
     let value = inputTaskTitle.value;
     if (value.trim()) { 
-        problems.innerHTML += createTask(value)
+        allTasksWrapper[0].innerHTML += createTask(value)
         inputTaskTitle.value = ''
         inputTaskTitle.style.border = '1px solid rgb(185, 185, 185)' 
         return;
