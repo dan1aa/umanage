@@ -66,25 +66,17 @@ select , option , button {
     border-radius: 5px;
     cursor: pointer;
     transition: all .4s ease;
-}
-.tab_links__link a {
-    text-decoration: none;
-    color: rgb(62, 62, 62);
+    background: transparent;
     font-weight: bold;
 }
 .tab_links__link:hover {
     background: rgb(62, 62, 62);
-}
-.tab_links__link:hover a {
     color: white;
     font-weight: normal;
 }
-.tasks {
+.tabs {
     width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 .task {
     width: 100%;
@@ -113,22 +105,52 @@ select , option , button {
 .task_right button , .task_options {
     margin-left: 10px;
 }
-.task_right button {
+.start_timer, .stop_timer {
     width: 100px;
     height: 100%;
     outline: none;
     border: none;
     background: transparent;
-    border: 1px solid #85C1E9;
-    color: #85C1E9;
     transition: all .4s ease;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.start_timer {
+    border: 1px solid #85C1E9;
+    color: #85C1E9;
+}
+.stop_timer {
+    border: 1px solid tomato;
+    color: tomato;
 }
 .task_right button:hover {
-    background:  #5DADE2;
     color: white;
     font-weight: normal;
 }
+.start_timer:hover {
+    background:  #5DADE2;
+}
+.stop_timer:hover {
+    background: tomato;
+}
 .task, .task_right button {
     border-radius: 3px;
+}
+.problems, .inprogress, .done {
+    flex-direction: column;
+    align-items: center;
+}
+.problems {
+    display: flex;
+}
+.inprogress, .done {
+    display: none;
+}
+.active {
+    display: flex;
+}
+.hidden {
+    display: none;
 }

@@ -8,18 +8,47 @@
         </select>
     </form>
     <div class="tab_links">
-        <div class="tab_links__link"><a href="">Tasks</a></div>
-        <div class="tab_links__link"><a href="">In progress</a></div>
-        <div class="tab_links__link"><a href="">Done</a></div>
+        <button class="tab_links__link" data-id="problems">Problems</button>
+        <button class="tab_links__link" data-id="inprogress">In progress</button>
+        <button class="tab_links__link" data-id="done">Done</button>
     </div>
-    <div class="tasks">
-        <div class="task">
-            <h3>Task name</h3>
-            <div class="task_right">
-                <span>00:00:00</span>
-                <button>Start timer</button>
-                <div class="task_options">
-                    Options
+    <div class="tabs">
+        <div class="problems">
+            <div class="task">
+                <h3>Problem</h3>
+                <div class="task_right">
+                    <span class="problem_stopwatch">00:00:00</span>
+                    <button class="start_timer">Start timer</button>
+                    <button class="stop_timer" style="display: none;">Stop timer</button>
+                    <div class="task_options">
+                        Options
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inprogress">
+            <div class="task">
+                <h3>In progress</h3>
+                <div class="task_right">
+                    <span class="inprogress_stopwatch">00:00:00</span>
+                    <button class="start_timer">Start timer</button>
+                    <button class="stop_timer" style="display: none;">Stop timer</button>
+                    <div class="task_options">
+                        Options
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="done">
+            <div class="task">
+                <h3>Done</h3>
+                <div class="task_right">
+                    <span class="done_stopwatch">00:00:00</span>
+                    <button class="start_timer">Start timer</button>
+                    <button class="stop_timer" style="display: none;">Stop timer</button>
+                    <div class="task_options">
+                        Options
+                    </div>
                 </div>
             </div>
         </div>
