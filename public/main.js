@@ -21,15 +21,16 @@ tabLinks.forEach(button => {
 
 
 addTaskButton.onclick = function (event) {
-    event.preventDefault();
+    event.preventDefault()
     let value = inputTaskTitle.value;
-    if (value.trim()) { 
-        allTasksWrapper[0].innerHTML += createTask(value)
-        inputTaskTitle.value = ''
-        inputTaskTitle.style.border = '1px solid rgb(185, 185, 185)' 
+    if (!value.trim()) { 
+        inputTaskTitle.style.border = '1px solid tomato' 
         return;
     }
-    inputTaskTitle.style.border = '1px solid tomato' 
+    allTasksWrapper[0].innerHTML += createTask(value)
+    inputTaskTitle.value = ''
+    inputTaskTitle.style.border = '1px solid rgb(185, 185, 185)' 
+    fetchCreateTask(value)
 }
 
 for (let i = 0; i < startTimerButtons.length; i++) {
@@ -57,4 +58,16 @@ function createTask(value) {
         </div>
     </div>
     `
+}
+
+function fetchCreateTask(value) {
+    fetch('createTask', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            value
+        })
+    })
 }
